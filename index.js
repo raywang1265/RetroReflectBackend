@@ -32,7 +32,7 @@ async function scraper(url, url2, input){
     const page = await browser.newPage();
     await page.goto(url);
     
-    for(let i = 1; i < 100; i+= 1){ 
+    for(let i = 1; i < 50; i+= 1){ 
         const [el] = await page.$x('//*[@id="mw-content-text"]/div[1]/table[2]/tbody/tr[' + i + ']/td[2]');
         const txt = await el.getProperty('textContent'); 
         const rawTxt = await txt.jsonValue();
