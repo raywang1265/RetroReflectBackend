@@ -38,7 +38,7 @@ async function scraper(url, url2, input){
         const rawTxt = await txt.jsonValue();
         //console.log(typeof(rawTxt))
         sanitizedStr = rawTxt.substring(rawTxt.indexOf('"') + 1); //remove all characters before "
-        sanitizedStr = sanitizedStr.slice(0, -2); //remove quotations
+        sanitizedStr = sanitizedStr.slice(0, sanitizedStr.indexOf("[")-1); //remove quotations
         //console.log(sanitizedStr);
         //console.log(rawTxt);
         
@@ -106,6 +106,8 @@ async function scraper(url, url2, input){
         }
 
     }
+
+    dictData = {similarList: similar, similarNameList: similarName, similarScoresList: similarScores, verySimilarList : verySimilar, verySimilarNamesList : verySimilarName, verySimilarNamesScoresList : verySimilarScores, inputAnalysisScore : inputAnalysis.score}
 
     if(verySimilar.length == 0){
         if(similar.length == 0){
