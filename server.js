@@ -35,8 +35,8 @@ router.use((req, res, next) => {
 
     next();
 });
-// localhost:8000/uofthacks
-router.post('/uofthacks', async (req, res, next) => {
+// localhost:8000/retroreflect-quotes
+router.post('/retroreflect-quotes', async (req, res, next) => {
     console.log(req.body['mood'])
     const response = await scraper('https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes', 'https://www.goalcast.com/anime-quotes/', req.body['mood']);
     return res.status(200).json(dictData)
