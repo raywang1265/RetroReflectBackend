@@ -42,6 +42,8 @@ router.post('/retroreflect-quotes', async (req, res, next) => {
     return res.status(200).json(dictData)
 })
 
+const port = process.env.PORT || 3000;
+
 const httpServer = http.createServer(router);
 
-httpServer.listen(8000, () => console.log(`Server is running`));
+httpServer.listen(port, () => console.log(`Server is running`));
